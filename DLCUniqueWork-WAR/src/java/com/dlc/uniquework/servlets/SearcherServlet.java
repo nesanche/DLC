@@ -32,7 +32,7 @@ public class SearcherServlet extends HttpServlet {
     private static final String COUNT_PARAMETER = "cantidad";
     private static final String REDIRECT_TO = "index.jsp";
     
-    private static final int RANKING_LIMIT = 51;
+    private static final int RANKING_LIMIT = 50;
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -93,7 +93,7 @@ public class SearcherServlet extends HttpServlet {
             double[] rank = new double[rankingList.size()];
             int count = 0;
             for (Ranking ranking : rankingList) {
-                if (count < RANKING_LIMIT) {
+                if (count <= RANKING_LIMIT) {
                     rank[count] = Math.floor((double) ranking.getRank() * 100) / 100;
                     result[count] = DataAccess.getInstance().getLocation((int) ranking.getId());
                     count++;

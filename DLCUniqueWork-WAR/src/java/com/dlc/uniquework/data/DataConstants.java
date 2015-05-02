@@ -13,7 +13,7 @@ package com.dlc.uniquework.data;
 public class DataConstants {
     
     //general constants
-    static final String URL = "C:\\Users\\Samu\\Desktop\\BuscadorIndexador\\";
+    static final String URL = "C:\\Users\\fasaloni\\Desktop\\Facultad\\DLC\\Trabajo Practico Integrador Final\\DLC\\DataBase";
     static final String FILE_NAME = "result.txt";
     static final String COMPLETE_PATH = URL + FILE_NAME;
     static final String DRIVER_NAME = "org.sqlite.JDBC";
