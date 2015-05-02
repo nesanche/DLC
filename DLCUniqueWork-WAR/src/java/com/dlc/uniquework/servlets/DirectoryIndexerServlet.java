@@ -5,7 +5,8 @@
  */
 package com.dlc.uniquework.servlets;
 
-import com.dlc.uniquework.model.Indexer;
+import com.dlc.uniquework.services.Indexer;
+import com.dlc.uniquework.utils.PropertyProvider;
 import com.dlc.uniquework.utils.ServletConstants;
 import java.io.File;
 import java.io.FilenameFilter;
@@ -22,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DirectoryIndexerServlet extends HttpServlet {
 
-    private static final String DOCUMENTS_URL = "C:\\Users\\fasaloni\\Desktop\\Facultad\\DLC\\DocumentosTP1";
+    private static final String DOCUMENTS_URL = PropertyProvider.getInstance().getProperty("documents_folder");
     
     
     /**

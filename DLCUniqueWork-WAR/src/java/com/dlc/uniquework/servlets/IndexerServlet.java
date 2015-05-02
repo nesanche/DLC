@@ -6,7 +6,7 @@
 package com.dlc.uniquework.servlets;
 
 import com.dlc.uniquework.data.FileAccess;
-import com.dlc.uniquework.model.Indexer;
+import com.dlc.uniquework.services.Indexer;
 import com.dlc.uniquework.utils.ServletConstants;
 import java.io.IOException;
 import java.io.PrintWriter;
