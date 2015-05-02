@@ -6,6 +6,7 @@
 package com.dlc.uniquework.servlets;
 
 import com.dlc.uniquework.model.Indexer;
+import com.dlc.uniquework.utils.ServletConstants;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -20,6 +21,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author fasaloni
  */
 public class DirectoryIndexerServlet extends HttpServlet {
+
+    private static final String DOCUMENTS_URL = "C:\\DocumentosTP1\\";
+    
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,24 +36,22 @@ public class DirectoryIndexerServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType(ServletConstants.CONTENT_TYPE);
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            String url = "C:\\DocumentosTP1\\";
-            File dir = new File(url);
-            String[] archivos = dir.list(new Filter(".txt"));
+            File directory = new File(DOCUMENTS_URL);
+            String[] files = directory.list(new Filter(".txt"));
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    for (String a : archivos) {
-                        Indexer in;
-                        in = new Indexer(url+a);
-                        System.out.println(in.doIndexation());                        
+                    for (String file : files) {
+                        Indexer indexer;
+                        indexer = new Indexer(DOCUMENTS_URL+file);
+                        System.out.println(indexer.doIndexation());                        
                     }
                      
                 }
             }).start();
-            out.print("procesando");
+            out.print("Procesando solicitud, por favor espere...");
         }
     }
 
@@ -105,5 +107,5 @@ public class DirectoryIndexerServlet extends HttpServlet {
             return name.endsWith(extension);
         }
     }
-    
+
 }

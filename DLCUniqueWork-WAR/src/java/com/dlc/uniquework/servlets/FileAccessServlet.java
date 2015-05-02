@@ -6,6 +6,7 @@
 package com.dlc.uniquework.servlets;
 
 import com.dlc.uniquework.data.FileAccess;
+import com.dlc.uniquework.utils.ServletConstants;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -69,9 +70,8 @@ public class FileAccessServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType(ServletConstants.CONTENT_TYPE);
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println(FileAccess.read());
         }
     }

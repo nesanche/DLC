@@ -7,6 +7,7 @@ package com.dlc.uniquework.servlets;
 
 import com.dlc.uniquework.data.FileAccess;
 import com.dlc.uniquework.model.Indexer;
+import com.dlc.uniquework.utils.ServletConstants;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,6 +20,11 @@ import javax.servlet.http.HttpServletResponse;
  * @author fasaloni
  */
 public class IndexerServlet extends HttpServlet {
+ 
+    private static final String URL_PARAMETER = "url";
+    
+    private static final String PAGE_TO_REDIRECT = "estado.jsp";
+    
  
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -70,18 +76,17 @@ public class IndexerServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType(ServletConstants.CONTENT_TYPE);
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            Indexer in = new Indexer(request.getParameter("url"));
+            Indexer indexer = new Indexer(request.getParameter(URL_PARAMETER));
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    String resultado = in.doIndexation(); 
-                    FileAccess.save(resultado);
+                    String result = indexer.doIndexation(); 
+                    FileAccess.save(result);
                 }
             }).start();            
-            response.sendRedirect("estado.jsp");
+            response.sendRedirect(PAGE_TO_REDIRECT);
         }
     }
 }
