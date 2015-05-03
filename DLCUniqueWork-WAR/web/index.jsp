@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
-    Created on : 11/04/2015, 12:27:00
-    Author     : Emiliano
+    Created on : 02/05/2015, 12:27:00
+    Author     : nesanche
 --%>
 
 <%@page import="org.apache.jasper.tagplugins.jstl.ForEach"%>
@@ -10,30 +10,37 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Buscador</title>
+        <title>Docoogle Search</title>
+        <link rel="shortcut icon" href="img/Google.ico" type="image/x-icon" />
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/estilo.css">
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/paging.js"></script>
+        <style>
+
+        </style>
     </head>
     <body>
         <nav id="navbar-example" class="navbar navbar-default navbar-static">
             <div class="container-fluid">
-                <div class="navbar-header"><a class="navbar-brand" href="index.jsp">Motor de Búsqueda</a></div>
+                <div class="navbar-header"><a class="navbar-brand" href="index.jsp">Docoogle</a></div>
                 <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.jsp">Buscador</a></li>
-                        <li><a href="indexador.jsp">Indexador</a></li>
+                        <li class="active"><a href="index.jsp">Search</a></li>
+                        <li><a href="indexador.jsp">Indexer</a></li>
                     </ul>                        
                 </div>
             </div>
         </nav>
         <div class="container">
             <div class="row">
-                <form method="POST" action="search" class="form-inline">
-                    <div class="form-group col-xs-8"><input type="text" name="cadena" class="form-control" value="${cadena}"></div>
-                    <input type="submit" value="Buscar" class="btn btn-primary col-xs-4">
-                </form>
+                <div class="col-lg-4 col-lg-offset-4">
+                    <div><img src="img/Docoogle.png" /></div>
+                    <form method="POST" action="search">
+                        <input  id="searchBar" type="text" name="cadena" class="form-control" value="${cadena}">
+                        <input type="submit" value="Buscar" class="btn btn-primary col-lg-4 col-lg-offset-4">
+                    </form>
+                </div>
             </div>
             <br><br>  
             <div class="row">
