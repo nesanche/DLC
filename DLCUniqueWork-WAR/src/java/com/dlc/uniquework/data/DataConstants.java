@@ -15,7 +15,8 @@ import com.dlc.uniquework.utils.PropertyProvider;
 public class DataConstants {
     
     //general constants
-    static final String URL = PropertyProvider.getInstance().getProperty("database_folder");
+    //static final String URL = PropertyProvider.getInstance().getProperty("database_folder");
+    static final String URL = "C:\\\\Users\\\\fasaloni\\\\Desktop\\\\Facultad\\\\DLC\\\\Trabajo Practico Integrador Final\\\\DLC\\\\DataBase";
     static final String FILE_NAME = "result.txt";
     static final String COMPLETE_PATH = URL + FILE_NAME;
     static final String DRIVER_NAME = "org.sqlite.JDBC";
