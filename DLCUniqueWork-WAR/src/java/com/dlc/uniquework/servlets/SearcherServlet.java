@@ -7,7 +7,7 @@ package com.dlc.uniquework.servlets;
 
 import com.dlc.uniquework.data.DataAccess;
 import com.dlc.uniquework.model.Ranking;
-import com.dlc.uniquework.model.Searcher;
+import com.dlc.uniquework.services.Searcher;
 import com.dlc.uniquework.utils.ServletConstants;
 import java.io.IOException;
 import java.io.PrintWriter;

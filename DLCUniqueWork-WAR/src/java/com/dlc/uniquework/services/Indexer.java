@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dlc.uniquework.model;
+package com.dlc.uniquework.services;
 
 import com.dlc.uniquework.data.DataAccess;
 import com.dlc.uniquework.utils.WordParser;
