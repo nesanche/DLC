@@ -19,7 +19,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- *
+ * 
  * @author fasaloni
  */
 public class DataAccess implements IDataAccess {
@@ -30,6 +30,9 @@ public class DataAccess implements IDataAccess {
     private Statement statement;
     private ResultSet resultSet;
 
+    /**
+     * Constructor of the class.
+     */
     private DataAccess() {
         try {
             Class.forName(DataConstants.DRIVER_NAME);
@@ -39,6 +42,10 @@ public class DataAccess implements IDataAccess {
         resetAttributes();
     }
 
+    /**
+     * Method used for getting the instance of the class (pattern singleton).
+     * @return the instance of the class.
+     */
     public static DataAccess getInstance() {
         if (singletonInstance == null) {
             singletonInstance = new DataAccess();
@@ -46,35 +53,48 @@ public class DataAccess implements IDataAccess {
         return singletonInstance;
     }
 
+    /**
+     * Method used for resetting all the conection attributes to null
+     */
     private void resetAttributes() {
         this.connection = null;
         this.statement = null;
         this.resultSet = null;
     }
 
+    /**
+     * Method used for opening a new connection of a SQLite database.
+     * @throws SQLException in case of any SQLError occurs during the conection.
+     */
     private void openConnection() throws SQLException {
         this.connection = DriverManager.getConnection(DataConstants.CONNECTION_STRING);
         this.statement = this.connection.createStatement();
     }
 
+    /**
+     * Method used for closing an existing connection of SQLite database.
+     */
     private void closeConnection() {
         if (this.resultSet != null) {
             try {
                 this.resultSet.close();
-            } catch (SQLException e) {
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
             }
         }
         if (this.statement != null) {
             try {
                 this.statement.close();
-            } catch (SQLException e) {
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
             }
         }
         if (this.connection != null) {
             try {
                 this.connection.commit();
                 this.connection.close();
-            } catch (SQLException e) {
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
             }
         }
     }

@@ -7,7 +7,7 @@ package com.dlc.uniquework.data;
 
 
 /**
- *
+ * Class that contains all the constants that will be used in all the methods
  * @author fasaloni
  */
 public class DataConstants {

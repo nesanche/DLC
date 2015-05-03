@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
- *
+ * Class in charge of doing all the insertions to the database.
  * @author fasaloni
  */
 public class Indexer {
@@ -31,7 +31,11 @@ public class Indexer {
     private static final String ERROR_PROCESSED_DOCUMENT_MESSAGE = "Ocurrió un error al intentar procesar el documento.";
 
     
-    
+    /**
+     * Constructor of the class.
+     * @param directory 
+     *                  The name of the directory.
+     */
     public Indexer(String directory) {
         this.map = new HashMap<>();
         this.directory = directory;
@@ -42,6 +46,12 @@ public class Indexer {
         return map.toString();
     }
 
+    /**
+     * Method used for inserting(indexing) all docmuents into the database, plus all the 
+     * words in each document.
+     * @return a string that mention if the whole operation was succesfull or if occured an error
+     * during the operation.
+     */
     public String doIndexation() {
         try {
             File directoryFile = new File(directory);

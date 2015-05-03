@@ -6,7 +6,7 @@
 package com.dlc.uniquework.utils;
 
 /**
- *
+ * Class that contains the constants that will be used in servlets.
  * @author fasaloni
  */
 public class ServletConstants {

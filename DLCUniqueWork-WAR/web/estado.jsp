@@ -1,10 +1,5 @@
-<%-- 
-    Document   : estado
-    Created on : 13/04/2015, 10:15:50
-    Author     : Emi
---%>
 
-<%@page import="datos.Estado"%>
+<%@page import="com.dlc.uniquework.data.FileAccess"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

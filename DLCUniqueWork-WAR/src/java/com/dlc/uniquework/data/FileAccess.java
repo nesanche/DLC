@@ -21,6 +21,12 @@ import java.io.InputStreamReader;
  */
 public class FileAccess {
     
+    /**
+     * Method used for saving the result of all the actions that occurred during the 
+     * execution of the program.
+     * @param result 
+     *              The string that contains all the information that occurred.
+     */
     public static void save(String result) {
         try {
             File file = new File(DataConstants.COMPLETE_PATH);
@@ -32,6 +38,10 @@ public class FileAccess {
         }
     }
     
+    /**
+     * Method used for reading the result document 
+     * @return the string that contains all the information of the result document.
+     */
     public static String read() {
         String answer = "";
         try{

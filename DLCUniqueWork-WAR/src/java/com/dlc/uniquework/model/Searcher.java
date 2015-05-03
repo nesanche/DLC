@@ -19,7 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
+ * Class in charge of create the ranking of the words.
  * @author fasaloni
  */
 public class Searcher {
@@ -30,12 +30,21 @@ public class Searcher {
     private int count;
     private IDataAccess dataAccess;
 
+    /**
+     * Constructor of the class
+     * @param words 
+     *              The words you want to look for.
+     */
     public Searcher(String words) {
         this.words = words;
         count = 0;
         dataAccess = DataAccess.getInstance();
     }
 
+    /**
+     * Method used for searching all the words and generate a ranking of them
+     * @return a list with all the words.
+     */
     public List<Ranking> search() {
         ranking = new HashMap();
         int documentsCount = dataAccess.getDocumentsCount();
@@ -59,6 +68,10 @@ public class Searcher {
         return rankingList;
     }
 
+    /**
+     * Method used for giving format to all the words.
+     * @return a list of words.
+     */
     private LinkedList<String> prepareWords() {
         LinkedList<String> retrievedWords = new LinkedList();
         tokens = new StringTokenizer(words);
@@ -71,6 +84,15 @@ public class Searcher {
         return retrievedWords;
     }
 
+    /**
+     * Method used for filling the ranking with the words and their appearances.
+     * @param post
+     *              The word in question.
+     * @param documentsCount
+     *                      In how many documents appears the word                     
+     * @param wordAppareance 
+     *                      How many times appears the word in all documents
+     */
     private void fillRankings(Post post, int documentsCount, double wordAppareance) {
         double rankingValue;
         if (ranking.containsKey(post.getId())) {
@@ -84,6 +106,10 @@ public class Searcher {
         }
     }
 
+    /**
+     * Method used for getting the count of the words.
+     * @return the count.
+     */
     public int getCount() {
         return count;
     }
