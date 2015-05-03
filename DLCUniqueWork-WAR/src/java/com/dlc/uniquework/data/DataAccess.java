@@ -68,6 +68,7 @@ public class DataAccess implements IDataAccess {
      */
     private void openConnection() throws SQLException {
         this.connection = DriverManager.getConnection(DataConstants.CONNECTION_STRING);
+        this.connection.setAutoCommit(false);
         this.statement = this.connection.createStatement();
     }
 

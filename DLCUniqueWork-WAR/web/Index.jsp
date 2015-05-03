@@ -26,8 +26,8 @@
                 <div class="navbar-header"><a class="navbar-brand" href="index.jsp">Docoogle</a></div>
                 <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.jsp">Search</a></li>
-                        <li><a href="indexador.jsp">Indexer</a></li>
+                        <li class="active"><a href="Index.jsp">Search</a></li>
+                        <li><a href="Indexer.jsp">Indexer</a></li>
                     </ul>                        
                 </div>
             </div>
@@ -51,7 +51,7 @@
                         String[] v = (String[]) request.getAttribute("resultado");
                         double[] r = (double[]) request.getAttribute("rank");
                         for(int i = 0; i<v.length; i++){%>
-                    <tr><td>R: <%=r[i]%> <a href="C:\Users\fasaloni\Desktop\Facultad\DLC\DocumentosTP1\<%=v[i]%>"><%=v[i]%></a></td></tr>
+                    <tr><td>R: <%=r[i]%> <a href="C:\Users\juancruz\Desktop\DocumentosTP1\<%=v[i]%>"><%=v[i]%></a></td></tr>
                     <% } request.removeAttribute("resultado");request.removeAttribute("rank"); } %>
                 </table>
             </div>
