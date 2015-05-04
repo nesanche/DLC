@@ -16,11 +16,11 @@ public class DataConstants {
     
     //general constants
     //static final String URL = PropertyProvider.getInstance().getProperty("database_folder");
-    static final String URL = "C:\\\\Users\\\\fasaloni\\\\Desktop\\\\Facultad\\\\DLC\\\\Trabajo Practico Integrador Final\\\\DLC\\\\DataBase";
+    static final String URL = "C:\\\\Users\\\\juancruz\\\\Desktop\\\\";
     static final String FILE_NAME = "result.txt";
     static final String COMPLETE_PATH = URL + FILE_NAME;
     static final String DRIVER_NAME = "org.sqlite.JDBC";
-    static final String DATABASE_NAME = "dlc_final_work.s3db";
+    static final String DATABASE_NAME = "dlc_final_work.sqlite";
     static final String CONNECTION_STRING = "jdbc:sqlite:" + URL + DATABASE_NAME;
     
     //table words

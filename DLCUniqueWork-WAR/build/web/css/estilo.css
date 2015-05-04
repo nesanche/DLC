@@ -5,21 +5,31 @@
     margin-top: 30px;
 }
 .navbar-brand{
-    color: #FFF !important;
+    color: #000 !important;
 }
 
 ul.navbar-nav > li > a {
-    color: #FFF !important;
+    color: #000 !important;
 }
 ul.navbar-nav > li.active > a{
-    background-color: #2e6da4 !important;
+    background-color: #a0a0a0 !important;
+    color: #fff !important;
 }
 #navbar-example{
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
+    color: #000;
+    background-color: #d0d0d0;
+    border-color: #d0d0d0;
 }
 
 body{
-    background-color: #F0F0F0;
+    background-color: #fff;
+}
+
+#navbar-example div {
+    float: right;
+}
+           
+#searchBar {
+    margin: 10px;
+    margin-top: 20px;
 }
