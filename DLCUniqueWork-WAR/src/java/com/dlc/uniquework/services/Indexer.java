@@ -10,6 +10,7 @@ import com.dlc.uniquework.utils.WordParser;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
@@ -59,7 +60,9 @@ public class Indexer {
                 return ALREADY_PROCESSED_DOCUMENT_MESSAGE;
             }
             if (directoryFile.exists()) {
-                try (BufferedReader info = new BufferedReader(new InputStreamReader(new FileInputStream(new File(directory)), "ISO-8859-1"))) {
+                    FileInputStream fileInputStream = new FileInputStream(directoryFile);
+                    InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "ISO-8859-1");
+                    BufferedReader info = new BufferedReader(inputStreamReader);
                     String line = info.readLine();
                     while (line != null) {
                         tokens = new StringTokenizer(line);
@@ -80,10 +83,13 @@ public class Indexer {
                         return SUCCESSFULL_PROCESSED_DOCUMENT_MESSAGE;
                     }
                 }
+            } catch (FileNotFoundException e) {
+                System.err.println(e.getMessage());
+                return ERROR_PROCESSED_DOCUMENT_MESSAGE;
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
+                return ERROR_PROCESSED_DOCUMENT_MESSAGE;
             }
-        } catch (IOException e) {
-            return ERROR_PROCESSED_DOCUMENT_MESSAGE;
-        }
         return ERROR_PROCESSED_DOCUMENT_MESSAGE;
     }
 
