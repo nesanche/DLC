@@ -30,7 +30,7 @@ public class SearcherServlet extends HttpServlet {
     private static final String RANK_PARAMETER = "rank";
     private static final String REAL_RESULTS_PARAMETER = "cantidadRealResultados";
     private static final String COUNT_PARAMETER = "cantidad";
-    private static final String REDIRECT_TO = "index.jsp";
+    private static final String REDIRECT_TO = "Index.jsp";
     
     private static final int RANKING_LIMIT = 50;
 

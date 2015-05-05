@@ -16,11 +16,11 @@ public class DataConstants {
     
     //general constants
     //static final String URL = PropertyProvider.getInstance().getProperty("database_folder");
-    static final String URL = "C:\\\\Users\\\\juancruz\\\\Desktop\\\\";
+    static final String URL = "C:\\Users\\juancruz\\Desktop\\test\\";
     static final String FILE_NAME = "result.txt";
     static final String COMPLETE_PATH = URL + FILE_NAME;
     static final String DRIVER_NAME = "org.sqlite.JDBC";
-    static final String DATABASE_NAME = "dlc_final_work.sqlite";
+    static final String DATABASE_NAME = "dlc_database.db";
     static final String CONNECTION_STRING = "jdbc:sqlite:" + URL + DATABASE_NAME;
     
     //table words
@@ -35,7 +35,7 @@ public class DataConstants {
     static final String DOCUMENTS_TABLE_NAME_COLUMN = "name";
     
     //table word_documents
-    static final String WORD_REPEATED_DOCUMENT_TABLE = "WordsRepeatedInDocument";
+    static final String WORD_REPEATED_DOCUMENT_TABLE = "WordsInDocuments";
     static final String WORD_REPEATED_DOCUMENT_TABLE_WORD_ID_COLUMN = "idWord";
     static final String WORD_REPEATED_DOCUMENT_TABLE_DOCUMENT_ID_COLUMN = "idDocument";
     static final String WORD_REPEATED_DOCUMENT_TABLE_COUNT_COLUMN = "count";

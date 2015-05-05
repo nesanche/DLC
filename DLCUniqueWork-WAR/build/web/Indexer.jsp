@@ -37,7 +37,7 @@
                 </div>
             </div>
             <br><br><br><br>
-            <form method="POST" action="dirindexer" style="display: none;">
+            <form method="POST" action="dirindexer">
                 <input type="text" name="cadena">  
                 <input type="submit" value="Indexat Todo">
             </form>

@@ -23,7 +23,7 @@ public class IndexerServlet extends HttpServlet {
  
     private static final String URL_PARAMETER = "url";
     
-    private static final String PAGE_TO_REDIRECT = "estado.jsp";
+    private static final String PAGE_TO_REDIRECT = "Status.jsp";
     
  
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

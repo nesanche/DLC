@@ -27,9 +27,9 @@ public class Indexer {
     private final String directory;
     private StringTokenizer tokens;
 
-    private static final String ALREADY_PROCESSED_DOCUMENT_MESSAGE = "El documento citado ya ha sido procesado.";
-    private static final String SUCCESSFULL_PROCESSED_DOCUMENT_MESSAGE = "El documento citado ha sido procesado correctamente.";
-    private static final String ERROR_PROCESSED_DOCUMENT_MESSAGE = "Ocurrió un error al intentar procesar el documento.";
+    private static final String ALREADY_PROCESSED_DOCUMENT_MESSAGE = "The document has already been processed.";
+    private static final String SUCCESSFULL_PROCESSED_DOCUMENT_MESSAGE = "The document has been processed.";
+    private static final String ERROR_PROCESSED_DOCUMENT_MESSAGE = "An error has been occurred during the processing.";
 
     
     /**

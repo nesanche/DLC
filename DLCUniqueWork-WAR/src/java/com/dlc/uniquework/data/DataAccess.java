@@ -240,7 +240,7 @@ public class DataAccess implements IDataAccess {
             openConnection();
             this.resultSet = this.statement.executeQuery(String.format("select COUNT(*) from %s;",DataConstants.DOCUMENTS_TABLE));
             if (this.resultSet.next()) {
-                count = this.resultSet.getInt(1);
+                count = this.resultSet.getInt(0);
             }
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
