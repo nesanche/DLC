@@ -31,7 +31,7 @@
                 <div class="col-lg-4 col-lg-offset-4">
                     <div><img src="img/Docoogle.png" /></div>
                     <form method="POST" action="indexer">
-                        <input id="searchBar" type="text" name="url" class="form-control" value="C:\Users\juancruz\Desktop\DocumentosTP1">
+                        <input id="searchBar" type="text" name="url" class="form-control" value="C:\Users\Franco\Desktop\DLC\DLC\DocumentosTP1">
                         <input type="submit" value="Indexar" class="btn btn-primary col-lg-4 col-lg-offset-4">
                     </form>
                 </div>

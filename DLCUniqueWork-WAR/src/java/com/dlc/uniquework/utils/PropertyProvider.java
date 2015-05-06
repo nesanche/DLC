@@ -21,7 +21,7 @@ public class PropertyProvider {
     private Properties properties;
 
     private PropertyProvider(String propFileName) {
-        
+        properties = new Properties();
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
         try {
             if (inputStream != null) {

@@ -48,10 +48,10 @@
                 <table class="table table-hover" id="resultados">
                     <tr><td class="text-center">${cantidadRealResultados}</td></tr>  
                     <% if( request.getAttribute("resultado") != null ) {
-                        String[] v = (String[]) request.getAttribute("resultado");
-                        double[] r = (double[]) request.getAttribute("rank");
-                        for(int i = 0; i<v.length; i++){%>
-                    <tr><td>R: <%=r[i]%> <a href="C:\Users\juancruz\Desktop\DocumentosTP1\<%=v[i]%>"><%=v[i]%></a></td></tr>
+                        String[] resultados = (String[]) request.getAttribute("resultado");
+                        double[] rank = (double[]) request.getAttribute("rank");
+                        for(int i = 0; i<resultados.length; i++){%>
+                    <tr><td><%=i+1%>- El resultado es: <%=rank[i]%> correspondiente al archivo: <a href="C:\Users\Franco\Desktop\DLC\DLC\DocumentosTP1\<%=resultados[i]%>"><%=resultados[i]%></a></td></tr>
                     <% } request.removeAttribute("resultado");request.removeAttribute("rank"); } %>
                 </table>
             </div>
@@ -75,13 +75,13 @@
                     pager.showPage(1);
 
                     for(var i = 0; i<paginas; i++){
-                        document.write("<li class='pag' id="+(i+1)+"><a href='#' onclick='cambiar("+(i+1)+")'>"+(i+1)+"</a></li>");
+                        document.write("<li class='pag' id="+(i+1)+"><a href='#' onclick='changePage("+(i+1)+")'>"+(i+1)+"</a></li>");
                     }
                     $("#"+actual).addClass("active");
                 }
                 else $(".pagination").hide();                
                 
-                function cambiar(n){
+                function changePage(n){
                     pager.showPage(n);
                     actual=n;
                     $(".pag").removeClass("active");
@@ -89,7 +89,7 @@
                     
                     if(actual > 1){
                         $("#prev").removeClass("disabled");
-                        $("#prev > a").attr("onclick", "cambiar("+(actual-1)+")");
+                        $("#prev > a").attr("onclick", "changePage("+(actual-1)+")");
                     }
                     else {
                         $("#prev").addClass("disabled");
@@ -99,12 +99,12 @@
                     }
                     else {
                         $("#next").removeClass("disabled");
-                        $("#next > a").attr("onclick", "cambiar("+(actual+1)+")");
+                        $("#next > a").attr("onclick", "changePage("+(actual+1)+")");
                     }
                 }
             </script>
                     <li id="next">
-                        <a href="#" aria-label="Next" onclick="cambiar(2)">
+                        <a href="#" aria-label="Next" onclick="changePage(2)">
                         <span aria-hidden="true">&raquo;</span>
                       </a>
                     </li>

@@ -23,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DirectoryIndexerServlet extends HttpServlet {
 
-    //private static final String DOCUMENTS_URL = PropertyProvider.getInstance().getProperty("documents_folder");
-    private static final String DOCUMENTS_URL = "C:\\Users\\juancruz\\Desktop\\DocumentosTP1\\";
+    private static final String DOCUMENTS_URL = PropertyProvider.getInstance().getProperty("documents_folder");
+    //private static final String DOCUMENTS_URL = "C:\\Users\\Franco\\Desktop\\DLC\\DLC\\DocumentosTP1\\";
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
