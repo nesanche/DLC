@@ -3,7 +3,8 @@
     Created on : 03/05/2015, 12:34:48
     Author     : nesanche
 --%>
-
+<%@page import="com.dlc.uniquework.data.DataConstants"%>
+<%@page import="com.dlc.uniquework.servlets.IndexerServlet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,7 +32,8 @@
                 <div class="col-lg-4 col-lg-offset-4">
                     <div><img src="img/Docoogle.png" /></div>
                     <form method="POST" action="indexer">
-                        <input id="searchBar" type="text" name="url" class="form-control" value="C:\Users\Franco\Desktop\DLC\DLC\DocumentosTP1">
+                        <% String path = (String) DataConstants.propertyProvider.getProperty(IndexerServlet.DOCUMENTS_PATH); %>
+                        <input id="searchBar" type="text" name="url" class="form-control" value="<%=path%>">
                         <input type="submit" value="Indexar" class="btn btn-primary col-lg-4 col-lg-offset-4">
                     </form>
                 </div>

@@ -5,11 +5,14 @@
  */
 package com.dlc.uniquework.servlets;
 
+import com.dlc.uniquework.data.DataConstants;
 import com.dlc.uniquework.data.FileAccess;
 import com.dlc.uniquework.services.Indexer;
+import static com.dlc.uniquework.servlets.SearcherServlet.REDIRECT_TO;
 import com.dlc.uniquework.utils.ServletConstants;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +27,11 @@ public class IndexerServlet extends HttpServlet {
     private static final String URL_PARAMETER = "url";
     
     private static final String PAGE_TO_REDIRECT = "Status.jsp";
+    
+    private static final String REDIRECT_TO = "Indexer.jsp";
+    
+    public static final String DOCUMENTS_PATH = "documents_folder";
+
     
  
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -79,6 +87,9 @@ public class IndexerServlet extends HttpServlet {
         response.setContentType(ServletConstants.CONTENT_TYPE);
         try (PrintWriter out = response.getWriter()) {
             Indexer indexer = new Indexer(request.getParameter(URL_PARAMETER));
+            RequestDispatcher rd = null;
+            rd = request.getRequestDispatcher(REDIRECT_TO);
+            rd.forward(request, response);
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -87,6 +98,7 @@ public class IndexerServlet extends HttpServlet {
                 }
             }).start();            
             response.sendRedirect(PAGE_TO_REDIRECT);
+
         }
     }
 }

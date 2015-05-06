@@ -4,6 +4,7 @@
     Author     : nesanche
 --%>
 
+<%@page import="com.dlc.uniquework.servlets.SearcherServlet"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.ForEach"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -50,8 +51,9 @@
                     <% if( request.getAttribute("resultado") != null ) {
                         String[] resultados = (String[]) request.getAttribute("resultado");
                         double[] rank = (double[]) request.getAttribute("rank");
+                        String documents_path = (String) request.getAttribute(SearcherServlet.DOCUMENTS_PATH);
                         for(int i = 0; i<resultados.length; i++){%>
-                    <tr><td><%=i+1%>- El resultado es: <%=rank[i]%> correspondiente al archivo: <a href="C:\Users\Franco\Desktop\DLC\DLC\DocumentosTP1\<%=resultados[i]%>"><%=resultados[i]%></a></td></tr>
+                    <tr><td><%=i+1%>- El resultado es: <%=rank[i]%> correspondiente al archivo: <a href="<%=documents_path%>\<%=resultados[i]%>"><%=resultados[i]%></a></td></tr>
                     <% } request.removeAttribute("resultado");request.removeAttribute("rank"); } %>
                 </table>
             </div>

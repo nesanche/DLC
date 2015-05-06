@@ -6,6 +6,7 @@
 package com.dlc.uniquework.servlets;
 
 import com.dlc.uniquework.data.DataAccess;
+import com.dlc.uniquework.data.DataConstants;
 import com.dlc.uniquework.model.Ranking;
 import com.dlc.uniquework.services.Searcher;
 import com.dlc.uniquework.utils.ServletConstants;
@@ -25,12 +26,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class SearcherServlet extends HttpServlet {
 
-    private static final String STRING_PARAMETER = "cadena";
-    private static final String RESULT_PARAMETER = "resultado";
-    private static final String RANK_PARAMETER = "rank";
-    private static final String REAL_RESULTS_PARAMETER = "cantidadRealResultados";
-    private static final String COUNT_PARAMETER = "cantidad";
-    private static final String REDIRECT_TO = "Index.jsp";
+    public static final String STRING_PARAMETER = "cadena";
+    public static final String RESULT_PARAMETER = "resultado";
+    public static final String RANK_PARAMETER = "rank";
+    public static final String REAL_RESULTS_PARAMETER = "cantidadRealResultados";
+    public static final String COUNT_PARAMETER = "cantidad";
+    public static final String REDIRECT_TO = "Index.jsp";
+    public static final String DOCUMENTS_PATH = "documents_path";
     
     private static final int RANKING_LIMIT = 50;
 
@@ -106,6 +108,7 @@ public class SearcherServlet extends HttpServlet {
             request.setAttribute(STRING_PARAMETER, request.getParameter(STRING_PARAMETER));
             request.setAttribute(REAL_RESULTS_PARAMETER, "Resultados: " + searcher.getCount());
             request.setAttribute(COUNT_PARAMETER, count);
+            request.setAttribute(DOCUMENTS_PATH, DataConstants.propertyProvider.getProperty("documents_folder"));
             RequestDispatcher rd = null;
             rd = request.getRequestDispatcher(REDIRECT_TO);
             rd.forward(request, response);
