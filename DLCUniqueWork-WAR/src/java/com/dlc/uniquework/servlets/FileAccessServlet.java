@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Class in charge of create a .txt that contains the result of the indexing operation.
  * @author fasaloni
  */
 public class FileAccessServlet extends HttpServlet {

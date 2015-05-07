@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Class in charge of get all the documents and words for indexing.
  * @author fasaloni
  */
 public class DirectoryIndexerServlet extends HttpServlet {

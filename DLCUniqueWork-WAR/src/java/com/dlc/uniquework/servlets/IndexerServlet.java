@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Class in charge of index all the words.
  * @author fasaloni
  */
 public class IndexerServlet extends HttpServlet {

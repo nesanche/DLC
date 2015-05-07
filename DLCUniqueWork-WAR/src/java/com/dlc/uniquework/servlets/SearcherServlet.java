@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Class in charge of search the specified word in the searcher and rank it. 
  * @author fasaloni
  */
 public class SearcherServlet extends HttpServlet {
