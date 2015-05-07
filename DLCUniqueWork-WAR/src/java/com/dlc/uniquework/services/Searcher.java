@@ -49,25 +49,33 @@ public class Searcher {
      */
     public List<Ranking> search() {
         ranking = new HashMap();
+        List<Ranking> rankingList = new ArrayList();
         int documentsCount = dataAccess.getDocumentsCount();
-        List<String> retrievedWords = prepareWords();
-        List<Post> postingList;
-        if (!retrievedWords.isEmpty()) {
-            for (String retrievedWord : retrievedWords) {
-                postingList = (ArrayList<Post>) dataAccess.getPostList(retrievedWord);
-                int wordAppareance = dataAccess.getWordAppearance(retrievedWord);
-                for (Post post : postingList) {
-                    fillRankings(post, documentsCount, wordAppareance);
+        if (documentsCount != 0)
+        {
+            List<String> retrievedWords = prepareWords();
+            List<Post> postingList;
+            if (!retrievedWords.isEmpty()) {
+                for (String retrievedWord : retrievedWords) {
+                    postingList = (ArrayList<Post>) dataAccess.getPostList(retrievedWord);
+                    int wordAppareance = dataAccess.getWordAppearance(retrievedWord);
+                    for (Post post : postingList) {
+                        fillRankings(post, documentsCount, wordAppareance);
+                    }
                 }
             }
+            count = ranking.size();
+
+            for (Map.Entry entry : ranking.entrySet()) {
+                rankingList.add(new Ranking((int) entry.getKey(), (double) entry.getValue()));
+            }
+            Collections.sort(rankingList);
+            return rankingList;
+            }
+        else
+        {
+            return rankingList;
         }
-        count = ranking.size();
-        List<Ranking> rankingList = new ArrayList();
-        for (Map.Entry entry : ranking.entrySet()) {
-            rankingList.add(new Ranking((int) entry.getKey(), (double) entry.getValue()));
-        }
-        Collections.sort(rankingList);
-        return rankingList;
     }
 
     /**
