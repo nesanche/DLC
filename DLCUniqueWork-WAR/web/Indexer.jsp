@@ -1,5 +1,5 @@
 <%-- 
-    Document   : indexador
+    Document   : indexer
     Created on : 03/05/2015, 12:34:48
     Author     : nesanche
 --%>
@@ -19,11 +19,9 @@
     <body>
         <nav id="navbar-example" class="navbar navbar-default navbar-static">
             <div class="container-fluid">
-                <div class="navbar-header"><a class="navbar-brand" href="Index.jsp">Docoogle</a></div>
                 <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="Index.jsp">Search</a></li>
-                        <li class="active"><a href="Indexer.jsp">Indexer</a></li>
                     </ul>                        
                 </div>
             </div>
@@ -34,7 +32,7 @@
                     <div><img src="img/Docoogle.png" /></div>
                     <form method="POST" action="indexer">
                         <% String path = (String) PropertyProvider.getInstance().getProperty(IndexerServlet.DOCUMENTS_PATH) + "\\"; %>
-                        <input id="searchBar" type="text" name="url" class="form-control" value="<%=path%>">
+                        <input type="text" name="url" class="form-control searchBar" value="<%=path%>">
                         <input type="submit" value="Index file" class="btn btn-primary col-lg-4 col-lg-offset-4">
                     </form>
                 </div>
@@ -42,10 +40,11 @@
             <br><br><br><br>
             <div class="col-lg-4 col-lg-offset-4">
                 <form method="POST" action="dirindexer">
-                    <input type="text" name="cadena" class="form-control">  
+                    <input type="text" name="cadena" class="form-control searchBar">  
                     <input type="submit" value="Index directory" class="btn btn-primary col-lg-4 col-lg-offset-4">
                 </form>
             </div>
         </div>
+        <footer>DLC | 4k6 | UTN - FRC | Presacco, Juan Cruz - Salonia, Franco Ariel - Sánchez, Nicolás Esteban</footer>
     </body>
 </html>

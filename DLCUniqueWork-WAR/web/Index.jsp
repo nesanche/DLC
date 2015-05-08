@@ -21,13 +21,11 @@
 
         </style>
     </head>
-    <body>
+    <body class="page-wrap">
         <nav id="navbar-example" class="navbar navbar-default navbar-static">
             <div class="container-fluid">
-                <div class="navbar-header"><a class="navbar-brand" href="Index.jsp">Docoogle</a></div>
                 <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="Index.jsp">Search</a></li>
                         <li><a href="Indexer.jsp">Indexer</a></li>
                     </ul>                        
                 </div>
@@ -38,7 +36,7 @@
                 <div class="col-lg-4 col-lg-offset-4">
                     <div><img src="img/Docoogle.png" /></div>
                     <form method="POST" action="search">
-                        <input  id="searchBar" type="text" name="cadena" class="form-control" value="${cadena}">
+                        <input type="text" name="cadena" class="form-control searchBar" value="${cadena}">
                         <input type="submit" value="Buscar" class="btn btn-primary col-lg-4 col-lg-offset-4">
                     </form>
                 </div>
@@ -114,5 +112,6 @@
             </nav>                
         </div>    
         <script>$("#resultados > tbody > tr > td > a").attr("target","_blank");</script>
+        <footer class="site-footer">DLC | 4k6 | UTN - FRC | Presacco, Juan Cruz - Salonia, Franco Ariel - Sánchez, Nicolás Esteban</footer>
     </body>
 </html>
