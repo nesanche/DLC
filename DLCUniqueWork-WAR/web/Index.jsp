@@ -14,7 +14,7 @@
         <title>Docoogle Search</title>
         <link rel="shortcut icon" href="img/Google.ico" type="image/x-icon" />
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="css/styles.css">
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/paging.js"></script>
         <style>
@@ -48,13 +48,13 @@
                 <div style="display:none; border: 0px;" id="NavPosicion"></div>
                 <table class="table table-hover" id="resultados">
                     <tr><td class="text-center">${cantidadRealResultados}</td></tr>  
-                    <% if( request.getAttribute("resultado") != null ) {
-                        String[] resultados = (String[]) request.getAttribute("resultado");
-                        double[] rank = (double[]) request.getAttribute("rank");
+                    <% if( request.getAttribute(SearcherServlet.RESULT_PARAMETER) != null ) {
+                        String[] results = (String[]) request.getAttribute(SearcherServlet.RESULT_PARAMETER);
+                        double[] rank = (double[]) request.getAttribute(SearcherServlet.RANK_PARAMETER);
                         String documents_path = (String) request.getAttribute(SearcherServlet.DOCUMENTS_PATH);
-                        for(int i = 0; i<resultados.length; i++){%>
-                    <tr><td><%=i+1%>- El resultado es: <%=rank[i]%> correspondiente al archivo: <a href="<%=documents_path%>\<%=resultados[i]%>"><%=resultados[i]%></a></td></tr>
-                    <% } request.removeAttribute("resultado");request.removeAttribute("rank"); } %>
+                        for(int i = 0; i<results.length; i++){%>
+                    <tr><td><%=i+1%>- El resultado es: <%=rank[i]%> correspondiente al archivo: <a href="<%=documents_path%>\<%=results[i]%>"><%=results[i]%></a></td></tr>
+                    <% } request.removeAttribute(SearcherServlet.RESULT_PARAMETER);request.removeAttribute(SearcherServlet.RANK_PARAMETER); } %>
                 </table>
             </div>
                 
@@ -68,7 +68,7 @@
                     </li>                                      
             <script>  
                 var total = 0${cantidad};
-                paginas = total / 10;
+                pages = total / 10;
                 var actual = 1;
                 if(total!==0){
                     var pager = new Pager('resultados', 10);
@@ -76,7 +76,7 @@
                     pager.showPageNav('pager', 'NavPosicion');
                     pager.showPage(1);
 
-                    for(var i = 0; i<paginas; i++){
+                    for(var i = 0; i<pages; i++){
                         document.write("<li class='pag' id="+(i+1)+"><a href='#' onclick='changePage("+(i+1)+")'>"+(i+1)+"</a></li>");
                     }
                     $("#"+actual).addClass("active");
@@ -96,7 +96,7 @@
                     else {
                         $("#prev").addClass("disabled");
                     }
-                    if(actual > paginas){
+                    if(actual > pages){
                         $("#next").addClass("disabled");
                     }
                     else {

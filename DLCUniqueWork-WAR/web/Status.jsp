@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Status</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="css/styles.css">
         <script src="js/jquery.min.js"></script>
         <script>
 	$(document).ready(function() {
