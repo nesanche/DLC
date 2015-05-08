@@ -22,12 +22,11 @@ public class DataConstants {
     
     //general constants
     static final String URL = propertyProvider.getProperty("database_folder");
-    //static final String URL = "C:\\Users\\Franco\\Desktop\\DLC\\DLC\\";
     static final String FILE_NAME = "result.txt";
-    static final String COMPLETE_PATH = URL + FILE_NAME;
+    static final String COMPLETE_PATH = URL + "\\" + FILE_NAME;
     static final String DRIVER_NAME = "org.sqlite.JDBC";
     static final String DATABASE_NAME = "dlc_database.db";
-    static final String CONNECTION_STRING = "jdbc:sqlite:" + URL + DATABASE_NAME;
+    static final String CONNECTION_STRING = "jdbc:sqlite:" + URL + "\\" + DATABASE_NAME;
     
     //table words
     static final String WORD_TABLE = "Word";

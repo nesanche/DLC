@@ -24,7 +24,7 @@
     <body>
         <nav id="navbar-example" class="navbar navbar-default navbar-static">
             <div class="container-fluid">
-                <div class="navbar-header"><a class="navbar-brand" href="index.jsp">Docoogle</a></div>
+                <div class="navbar-header"><a class="navbar-brand" href="Index.jsp">Docoogle</a></div>
                 <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="Index.jsp">Search</a></li>

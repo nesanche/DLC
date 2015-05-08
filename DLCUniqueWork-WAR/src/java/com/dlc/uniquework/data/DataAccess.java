@@ -145,7 +145,7 @@ public class DataAccess implements IDataAccess {
         try {
             openConnection();
             resultSet = this.statement.executeQuery(String.format("select %s from %s where %s = '%s';",DataConstants.DOCUMENTS_TABLE_ID_COLUMN, DataConstants.DOCUMENTS_TABLE, DataConstants.DOCUMENTS_TABLE_NAME_COLUMN, file));
-            checked = !resultSet.next();
+            checked = resultSet.next();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
             checked = false;

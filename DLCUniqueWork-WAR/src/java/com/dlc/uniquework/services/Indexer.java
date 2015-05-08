@@ -56,7 +56,7 @@ public class Indexer {
     public String doIndexation() {
         try {
             File directoryFile = new File(directory);
-            if (!DataAccess.getInstance().checkDocument(directoryFile.getName())) {
+            if (DataAccess.getInstance().checkDocument(directoryFile.getName())) {
                 return ALREADY_PROCESSED_DOCUMENT_MESSAGE;
             }
             if (directoryFile.exists()) {
