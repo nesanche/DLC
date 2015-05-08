@@ -30,18 +30,18 @@ public class DataConstants {
     static final String CONNECTION_STRING = "jdbc:sqlite:" + URL + DATABASE_NAME;
     
     //table words
-    static final String WORD_TABLE = "Words";
+    static final String WORD_TABLE = "Word";
     static final String WORD_TABLE_ID_COLUMN = "id";
     static final String WORD_TABLE_WORD_COLUMN = "word";
     static final String WORD_TABLE_COUNT_COLUMN = "count";
     
     //table documents
-    static final String DOCUMENTS_TABLE = "Documents";
+    static final String DOCUMENTS_TABLE = "Document";
     static final String DOCUMENTS_TABLE_ID_COLUMN = "id";
     static final String DOCUMENTS_TABLE_NAME_COLUMN = "name";
     
     //table word_documents
-    static final String WORD_REPEATED_DOCUMENT_TABLE = "WordsInDocuments";
+    static final String WORD_REPEATED_DOCUMENT_TABLE = "words_documents";
     static final String WORD_REPEATED_DOCUMENT_TABLE_WORD_ID_COLUMN = "idWord";
     static final String WORD_REPEATED_DOCUMENT_TABLE_DOCUMENT_ID_COLUMN = "idDocument";
     static final String WORD_REPEATED_DOCUMENT_TABLE_COUNT_COLUMN = "count";

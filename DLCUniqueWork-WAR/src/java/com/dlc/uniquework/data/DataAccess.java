@@ -213,15 +213,19 @@ public class DataAccess implements IDataAccess {
     public List<Post> getPostList(String word) {
         resetAttributes();
         List<Post> resultList = null;
+        ResultSet resultSetAux;
         try {
             openConnection();
             this.resultSet = this.statement.executeQuery(String.format("select %s from %s where %s like '%s';", DataConstants.WORD_TABLE_ID_COLUMN, DataConstants.WORD_TABLE, DataConstants.WORD_TABLE_WORD_COLUMN, word));
             if (this.resultSet.next()) {
                 int id = this.resultSet.getInt(1);
-                this.resultSet = this.statement.executeQuery(String.format("select %s, %s from %s where %s = %s order by %s desc;", DataConstants.WORD_REPEATED_DOCUMENT_TABLE_DOCUMENT_ID_COLUMN, DataConstants.WORD_REPEATED_DOCUMENT_TABLE_COUNT_COLUMN, DataConstants.WORD_REPEATED_DOCUMENT_TABLE, DataConstants.WORD_REPEATED_DOCUMENT_TABLE_WORD_ID_COLUMN, id, DataConstants.WORD_REPEATED_DOCUMENT_TABLE_COUNT_COLUMN));
+                closeConnection();
+                openConnection();
+                resultSetAux = this.statement.executeQuery(String.format("select %s, %s from %s where %s = %s order by %s desc;", DataConstants.WORD_REPEATED_DOCUMENT_TABLE_DOCUMENT_ID_COLUMN, DataConstants.WORD_REPEATED_DOCUMENT_TABLE_COUNT_COLUMN, DataConstants.WORD_REPEATED_DOCUMENT_TABLE, DataConstants.WORD_REPEATED_DOCUMENT_TABLE_WORD_ID_COLUMN, id, DataConstants.WORD_REPEATED_DOCUMENT_TABLE_COUNT_COLUMN));
                 resultList = new ArrayList();
-                while (this.resultSet.next()) {
-                    resultList.add(new Post(this.resultSet.getInt(1), this.resultSet.getInt(2)));
+                while (resultSetAux.next()) {
+                    Post post = new Post(resultSetAux.getInt(1), resultSetAux.getInt(2));
+                    resultList.add(post);
                 }
             }
         } catch (SQLException ex) {
@@ -240,7 +244,7 @@ public class DataAccess implements IDataAccess {
             openConnection();
             this.resultSet = this.statement.executeQuery(String.format("select COUNT(*) from %s;",DataConstants.DOCUMENTS_TABLE));
             if (this.resultSet.next()) {
-                count = this.resultSet.getInt(0);
+                count = this.resultSet.getInt(1);
             }
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -259,7 +263,9 @@ public class DataAccess implements IDataAccess {
             this.resultSet = this.statement.executeQuery(String.format("select %s from %s where %s like '%s';", DataConstants.WORD_TABLE_ID_COLUMN, DataConstants.WORD_TABLE, DataConstants.WORD_TABLE_WORD_COLUMN, word ));
             if (this.resultSet.next()) {
                 int id = this.resultSet.getInt(1);
-                this.resultSet = this.statement.executeQuery("select COUNT(*) from WordsDocumentos where idWord=" + id + ";");
+                closeConnection();
+                openConnection();
+                this.resultSet = this.statement.executeQuery(String.format("select COUNT(*) from %s where %s=%s;", DataConstants.WORD_REPEATED_DOCUMENT_TABLE, DataConstants.WORD_REPEATED_DOCUMENT_TABLE_WORD_ID_COLUMN, id));
                 if (this.resultSet.next()) {
                     count = this.resultSet.getInt(1);
                 }

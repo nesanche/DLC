@@ -6,9 +6,9 @@
 package com.dlc.uniquework.servlets;
 
 import com.dlc.uniquework.data.DataAccess;
-import com.dlc.uniquework.data.DataConstants;
 import com.dlc.uniquework.model.Ranking;
 import com.dlc.uniquework.services.Searcher;
+import com.dlc.uniquework.utils.PropertyProvider;
 import com.dlc.uniquework.utils.ServletConstants;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,7 +34,7 @@ public class SearcherServlet extends HttpServlet {
     public static final String REDIRECT_TO = "Index.jsp";
     public static final String DOCUMENTS_PATH = "documents_path";
     
-    private static final int RANKING_LIMIT = 50;
+    private static final int RANKING_LIMIT = 500;
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -108,7 +108,7 @@ public class SearcherServlet extends HttpServlet {
             request.setAttribute(STRING_PARAMETER, request.getParameter(STRING_PARAMETER));
             request.setAttribute(REAL_RESULTS_PARAMETER, "Resultados: " + searcher.getCount());
             request.setAttribute(COUNT_PARAMETER, count);
-            request.setAttribute(DOCUMENTS_PATH, DataConstants.propertyProvider.getProperty("documents_folder"));
+            request.setAttribute(DOCUMENTS_PATH, PropertyProvider.getInstance().getProperty("documents_folder"));
             RequestDispatcher rd = null;
             rd = request.getRequestDispatcher(REDIRECT_TO);
             rd.forward(request, response);
